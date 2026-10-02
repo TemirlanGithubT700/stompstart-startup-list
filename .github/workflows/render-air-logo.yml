@@ -18,6 +18,7 @@ jobs:
       - name: Render official AIR SVG as PNG
         shell: bash
         run: |
+          mkdir -p startups/air-security
           python -m pip install --quiet cairosvg pillow
           python - <<'PY'
           import io
