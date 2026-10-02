@@ -13,8 +13,8 @@ access:
   - kind: demo
     url: https://www.air.security/
 categories:
-  - cybersecurity
-  - artificial-intelligence
+  - security
+  - ai-and-agents
 stage: live
 pricing:
   model: contact_sales
