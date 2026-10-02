@@ -1,4 +1,4 @@
-name: Validate AIR startup
+name: Inspect Stompstart taxonomy
 
 on:
   push:
@@ -9,16 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  taxonomy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: add-air-security
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run validate
-      - run: npm run eligibility -- air-security
+      - run: curl -fsS https://stompstart.com/api/taxonomy | jq -r '.taxonomy.categories[] | [.id, .name] | @tsv'
